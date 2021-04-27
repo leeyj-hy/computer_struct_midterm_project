@@ -7,8 +7,8 @@ n:
 .text
 main:
     la t0, n			#load address of n to t0
-    add t2, x0, x0
-    lw a0, 0(t0)		#load address of t0+0(offset) to a0
+    lw a0 , 0(t0)		#load address of t0+0(offset) to a0
+    addi t1, a0, 0		#load a0 to t1
     jal ra, factorial		#jump to factorial and link next text's address to ra
 
     addi a1, a0, 0
@@ -23,9 +23,9 @@ main:
     ecall 			# Exit
 
 factorial:
-    addi t1, t0, 0		#load t0 to t1
     beq t1, x0, main		#if t1==0, exit
     addi t2, t1, -1		#make t2==t1-1 (t1 is equal to t0 and its n)
-    mul t3, t1, t2		#save t1*t2 to t3
+    
+    mul t3, t1, factorial		#save t1*t2 to t3
     add t1, x0, t2		#make t1=t2
     jal t3, factorial		#return t3 and link to factorial
