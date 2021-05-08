@@ -14,10 +14,17 @@
 # =======================================================
 dot:
     # Prologue
-	addi t5 t5 1
-    jal x0 loop_start
+	addi t0 x0 0
+    addi t1 x0 0
+    addi t2 x0 0
+    addi t3 x0 0
+    addi t4 x0 0
+    addi t5 x0 0
+    addi t6 x0 0
+    j loop_start
 
 loop_start:
+	addi t5 t5 1
 	lw t0 0(a0)
     lw t1 0(a1)
     mul t3 t0 t1
@@ -25,10 +32,10 @@ loop_start:
     
     beq t5 a2 loop_end
     addi t3 x0 4
-    mul t6 a4 t3
+    mul t6 a4 t30&
     addi a0 a0 4
     add a1 a1 t6
-    jal x0 dot
+    j loop_start
 
 loop_end:
     # Epilogue
