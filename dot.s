@@ -32,7 +32,7 @@ loop_start:
     
     beq t5 a2 loop_end
     addi t3 x0 4
-    mul t6 a4 t30&
+    mul t6 a4 t3
     addi a0 a0 4
     add a1 a1 t6
     j loop_start

@@ -14,7 +14,7 @@
 argmax:
     # Prologue
 	lw t6 0(a0)			#load word of pointer of a0 to t3
-    addi t4 t4 1		#iteration counter t4
+    addi t4 x0 1		#iteration counter t4
     addi a0 a0 4
 	jal t5 loop_start
     
